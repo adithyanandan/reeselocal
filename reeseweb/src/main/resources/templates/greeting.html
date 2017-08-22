@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <title>Testing the Email Service</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/email.css}" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+
+<div class="container">
+<form action="#" th:action="@{/test}" th:object="${greeting}" method="post">
+
+
+
+<br/>
+<br/>
+
+    <h3 class="form-signin-heading" style="color:blue; font-size:28px;">Send an invite to the External Users </h3>
+    <br/>
+    <br/>
+
+
+
+
+    <div class="form-group">
+        <label for="email">Email:</label>
+        <input type="text" th:field="*{email}" placeholder="Email"
+               class="form-control" /> <label
+            th:if="${#fields.hasErrors('email')}" th:errors="*{email}"
+            class="validation-message"></label>
+    </div>
+    <div class="form-group">
+        <label for="content">Body:</label>
+      <!--  placeholder="Hi Please Enter the Message to Send with the Notification...If No Message is entered Default message information will be sent to the User"-->
+        <textarea class="form-control" rows="10" id="content" th:field="*{content}" placeholder="Hi Please Enter the Message to Send with the Notification...If No Message is entered Default message information will be sent to the User">
+
+         Hi
+                This is a System Generated message to provide the information about registering with the Reese Application.
+            Please customize if you want to enter different message.
+
+            Thankyou,
+            ReeseApplication.
+
+
+
+        </textarea>
+
+
+    </div>
+
+
+
+
+    <div align="center" th:if="${param.error}">
+        <p style="font-size: 20; color: #FF1C19;">Email is invalid, please verify</p>
+    </div>
+    <button class="btn btn-lg btn-primary btn-block" name="Submit" value="Send Invite" type="Submit" th:text="SendInvite"></button>
+
+
+
+ <!--   <p>Email: <input type="text" th:field="*{email}" /></p>
+    <p>Content: <input type="text" th:field="*{content}" /></p>
+
+    <p><input type="submit" value="Send Invite" /> </p>-->
+</form>
+</div>
+
+</body>
+</html>

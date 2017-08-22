@@ -1,0 +1,19 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Email success page</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/email.css}" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+<div class="container">
+<h3 class="form-signin-heading" style="color:blue; font-size:28px;"><p>An Email has been Sent Successfully</p></h3>
+<br/>
+<p th:text="'BODY:: ' + ${greeting.content}" />
+<p th:text="'EMAIL:: ' + ${greeting.email}" />
+<a href="/test">Send another Email</a>
+</div>
+</body>
+</html>

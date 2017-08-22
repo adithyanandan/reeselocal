@@ -1,0 +1,51 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Sending an Email to test the Service</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/email.css}" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+<div class="container">
+<form action="#" th:action="@{/register}" th:object="${tokenGeneration}" method="post">
+
+    <h3 class="form-signin-heading" style="color:blue; font-size:28px;">Welcome to the Reese Registration </h3>
+    <br/>
+    <br/>
+
+    <div class="form-group">
+        <label for="email">Email:</label>
+        <input type="text" th:field="*{email}" placeholder="Email"
+               class="form-control" /> <label
+            th:if="${#fields.hasErrors('email')}" th:errors="*{email}"
+            class="validation-message"></label>
+    </div>
+
+    <div class="form-group">
+        <label for="tempPassword">Password:</label>
+
+      <input type="text" th:field="*{tempPassword}" placeholder="Password"
+               class="form-control" /> <label
+            th:if="${#fields.hasErrors('tempPassword')}" th:errors="*{tempPassword}"
+            class="validation-message"></label>
+    </div>
+
+    <div align="center" th:if="${param.error}">
+        <p style="font-size: 20; color: #FF1C19;">Email or Password invalid, please verify</p>
+    </div>
+
+    <button class="btn btn-lg btn-primary btn-block" name="Submit" value="Register" type="Submit" th:text="Register"></button>
+
+
+   <!-- <p>Email: <input type="text" th:field="*{email}" /></p>
+    <p><input type="submit" value="Register" /> </p>-->
+</form>
+</body>
+</html>
+
+
+
+
+
